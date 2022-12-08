@@ -35,8 +35,7 @@
             </p>            
 
 			<input type="button" id = "totalclaims" value="View all Claims!" onclick="viewClaim();" />
-            <!-- <input type="button" class = "collapsible">"Check Available Tokens" onclick="viewTokens();" /> -->
-            <button id = "view_token" onclick="tokenfun()">Check Available Tokens</button>
+            <button id = "view_token" >Check Available Tokens</button>
          </div>
                 
    
@@ -68,7 +67,7 @@
             }
         }
         tmp().then((val)=>{
-            document.getElementById("tokennum").innerHTML = "total "+ content;
+            document.getElementById("tokennum").innerHTML = "Available Tokens "+ content/(1e18);
             console.log(val);
             if(success==1){
                 alert("Transaction Success! Your claim will be processed!" + content/(1e18));
