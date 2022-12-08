@@ -1,5 +1,5 @@
 web3= new Web3(window.web3.currentProvider); 
-var contractAddress='0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8';
+var contractAddress='0x1b40635A5bb364452e70159D5a7A90894Cf80688';
 var decentralized_address_p = document.getElementById('decentralized_address');
 var abi;
 var currentAccount;
@@ -362,19 +362,6 @@ const fund_btn = document.getElementById('fund_btn')
                     "type": "bool"
                 }
             ],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "aId",
-                    "type": "address"
-                }
-            ],
-            "name": "transferHope",
-            "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         },

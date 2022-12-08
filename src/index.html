@@ -49,7 +49,7 @@
             var success=1;
             var tmp = async function(){ 
                 try{
-                    console.log("inside try of airdrop"+currentAccount);
+                    console.log("inside try of airdrop: "+currentAccount);
                     return await foodDonationContract.methods.airdrop(currentAccount).send({from:currentAccount});
                 } 
                 catch(e){
