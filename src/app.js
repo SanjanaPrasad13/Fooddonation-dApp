@@ -1,5 +1,5 @@
 web3= new Web3(window.web3.currentProvider); 
-var contractAddress='0xd38A4122F7f2eC47F89dD8FF375694bDA846deBd';
+var contractAddress='0x64AC8f99b2fE1295d328134d574460aCa5FaE433';
 var decentralized_address_p = document.getElementById('decentralized_address');
 var abi;
 var currentAccount;
