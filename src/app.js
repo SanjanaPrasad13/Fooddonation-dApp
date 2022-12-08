@@ -851,7 +851,10 @@ c_abi=[
     foodDonationContract = new web3.eth.Contract(c_abi,contractAddress);
     getCurrentAccount().then((value)=>{decentralized_address_p.innerHTML+=value; currentAccount = value;})
 
-
+    async function getCurrentAccount(){
+        const acc = await ethereum.request({ method: 'eth_requestAccounts'});
+        return acc[0];
+    }
 
 function register_claimant(name, phNo,Address){
     console.log("register receiver");
