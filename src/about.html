@@ -37,12 +37,9 @@
 			<input type="button" id = "totalclaims" value="View all Claims!" onclick="viewClaim();" />
             <!-- <input type="button" class = "collapsible">"Check Available Tokens" onclick="viewTokens();" /> -->
             <button id = "view_token" onclick="tokenfun()">Check Available Tokens</button>
-            
-
-            
-        </div>
+         </div>
                 
-    
+   
     </section>
     <script type="text/javascript">
         function viewClaim() {
@@ -56,22 +53,6 @@
         coll.addEventListener("click", function() {
 
             this.classList.toggle("active");
-            // var tmp = async function(){
-            //             try{console.log("Tokens: 1" + content)
-            //                 var content = await foodDonationContract.methods.balanceOf(currentAccount).call();
-            //                 setTimeout(function() {
-            //                     form.innerHTML = "Available Tokens: " + content + " Hope Tokens"
-            //                 console.log("Tokens: 2 " + content)
-            //                 }, 2000);
-            //                 alert("token" + content)
-                            
-            //             } 
-            //             catch(e){
-            //                 success=0;
-            //                 alert("Transaction failed");
-            //             }
-            //         }
-
             var success=1;
             var content = 0;
             var tmp = async function(){ 
@@ -90,15 +71,9 @@
             document.getElementById("tokennum").innerHTML = "total "+ content;
             console.log(val);
             if(success==1){
-                alert("Transaction Success! Your claim will be processed!" + content);
+                alert("Transaction Success! Your claim will be processed!" + content/(1e18));
             }
     });  
-                    // tmp().then((val)=>{
-                    //     console.log(val);
-                    //     if(success==1){
-                    //         alert("Success");
-                    //     }
-                    // });
             
             
           });

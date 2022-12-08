@@ -1,5 +1,5 @@
 web3= new Web3(window.web3.currentProvider); 
-var contractAddress='0x1b40635A5bb364452e70159D5a7A90894Cf80688';
+var contractAddress='0x257b113635753244985443069689Cb17F92658c0';
 var decentralized_address_p = document.getElementById('decentralized_address');
 var abi;
 var currentAccount;
@@ -18,7 +18,7 @@ async function getCurrentAccount(){
     return acc[0];
 }
 
-c_abi=[
+c_abi= [
 	{
 		"inputs": [
 			{
@@ -633,19 +633,6 @@ c_abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "retrieveAllRequests",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -873,7 +860,6 @@ function register(name, phNo,mailId,Address){
     var success=1;
     var tmp = async function(){ 
         try{
-            // role_bytes32 = web3.utils.padLeft(web3.utils.asciiToHex(role), 64);
             console.log("inside try");
 			console.log("data from Ui"+  currentAccount);
             return await foodDonationContract.methods.register_donor(currentAccount, name, 0, phNo,mailId,Address).send({from:currentAccount});
