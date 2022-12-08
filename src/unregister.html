@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="makeDonation.css" >
+    <title>Unregister</title>
+    <script>
+        function Redirect() {
+          location.href="index.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="row justify-content-md-center">
+        <p id="decentralized_address" style="margin-top: 60px;"> Current decentralized address : </p>
+    </div>
+
+    <p id = "tctx" >
+        You are successfully unregistered!  
+    </p>
+    <input type="button" id = "tc" value="Click Here to reach home page!" onclick="unregfun();" />
+          
+    <script type="text/javascript">
+        function unregfun() {
+            Redirect();
+            // setTimeout( function() { Redirect(); }, 1000);
+      }
+      </script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="app.js"></script>
+</html>

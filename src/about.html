@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="donate.css" >
+    <title>About</title>
+    <script>
+        function Redirect() {
+          location.href="totalClaims.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="row justify-content-md-center">
+        <p id="decentralized_address" style="margin-top: 60px;"> Your decentralized address : </p>
+        <div id = "tokennum"> </div>
+    </div>
+
+    <div class="content-abt">
+        <p id = "content-about">Use of food banks and pantries has increased around the world during the COVID-19 pandemic. 
+            <br>
+            <br>
+            Our Mission is to reduce hunger deaths by providing people with nutritious food to the needy people.
+            <br>
+            <br>Here, we collect the food from various donors and distribute them to the hungry people in that locality.
+            <br>
+        </p>
+    </div>
+    <section>
+        <div class="box" id="textclaim">
+          <p id = "point1">
+            Wanna see our Receiver's list?  
+            </p>            
+
+			<input type="button" id = "totalclaims" value="View all Claims!" onclick="viewClaim();" />
+            <!-- <input type="button" class = "collapsible">"Check Available Tokens" onclick="viewTokens();" /> -->
+            <button id = "view_token" onclick="tokenfun()">Check Available Tokens</button>
+            
+
+            
+        </div>
+                
+    
+    </section>
+    <script type="text/javascript">
+        function viewClaim() {
+            Redirect(); 
+      }
+    </script>
+   
+    <script>
+        var coll = document.getElementById("view_token");
+
+        coll.addEventListener("click", function() {
+
+            this.classList.toggle("active");
+            // var tmp = async function(){
+            //             try{console.log("Tokens: 1" + content)
+            //                 var content = await foodDonationContract.methods.balanceOf(currentAccount).call();
+            //                 setTimeout(function() {
+            //                     form.innerHTML = "Available Tokens: " + content + " Hope Tokens"
+            //                 console.log("Tokens: 2 " + content)
+            //                 }, 2000);
+            //                 alert("token" + content)
+                            
+            //             } 
+            //             catch(e){
+            //                 success=0;
+            //                 alert("Transaction failed");
+            //             }
+            //         }
+
+            var success=1;
+            var content = 0;
+            var tmp = async function(){ 
+            try{
+                console.log("inside app try");
+                content = await foodDonationContract.methods.balanceOf(currentAccount).call();
+            } 
+            catch(e){
+                console.log("inside app catch");
+                console.log(e)
+                success=0;
+                alert("Transaction failed! Please Register to proceed");
+            }
+        }
+        tmp().then((val)=>{
+            document.getElementById("tokennum").innerHTML = "total "+ content;
+            console.log(val);
+            if(success==1){
+                alert("Transaction Success! Your claim will be processed!" + content);
+            }
+    });  
+                    // tmp().then((val)=>{
+                    //     console.log(val);
+                    //     if(success==1){
+                    //         alert("Success");
+                    //     }
+                    // });
+            
+            
+          });
+
+
+</script>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="app.js"></script>
+</html>

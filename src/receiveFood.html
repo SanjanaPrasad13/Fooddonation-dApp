@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Receiving Donation</title>
+	<link rel="stylesheet" type="text/css" href="makeDonation.css">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	<script type="text/javascript">
+		function Redirect() {
+		   location.href="claim.html";
+		}
+	</script>
+</head>
+<body>
+    <div class="row justify-content-md-center">
+        <p id="decentralized_address" style="margin-top: 60px;"> Current decentralized address : </p>
+    </div>
+	<div class="main">  	
+
+			<div class="receiveFood">
+				<form>
+					<label for="chk" aria-hidden="true">Receive Here!</label>
+					<input type="text" name="txt" id= "name_id" placeholder="Name" required="">
+					<input type="tel" name="phNo" id = "phNo_id" placeholder="Phone Number" required="">
+					<input type="email" name="email" id = "mail_id" placeholder="Email" required="">
+					<input type="txt" name="fType" id = "f_type" placeholder="Food Type" required="">
+					<input type="txt" name="fPref" id = "f_pref" placeholder="Food Preference" required="">
+					<input type="text" name="Address" id = "address_id" placeholder="Pickup Address" required="">
+					<!-- <input type="number" name="quantity" placeholder="Quantity" required=""> -->
+					<input type="button" id = "donatebtn" value="Receive" onclick="claimfoodcall();" />
+				</form>
+			</div>	
+	</div>
+	<script type="text/javascript">
+		function claimfoodcall() {
+			console.log("inside calling call");
+			receiveFood(document.getElementById('name_id').value,
+				document.getElementById('f_pref').value, 
+				document.getElementById('f_type').value)
+				console.log("outside calling call");
+				// setTimeout( function() { Redirect(); }, 8000);
+	}
+	</script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="app.js"></script>
+</html>

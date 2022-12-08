@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="btn" id="button"><a href="#">Register</a></div>
+    <div class="btn"><a href="#" >Un-Register</a></div>
+            <div class="btn"><a href="#" >Make Donation</a></div>
+
+</div>
+
+<div class="popup">
+    <div class="popup-content">
+        <img src="close.jpg" alt="Close" class="close" id="close">
+
+        <input type="text" id="donor_details" class="input is-rounded" type="text" placeholder="Enter Your Details :">
+        <input type="number" id="donor_amount" class="input is-rounded" type="text" placeholder="Enter Donation Amount"><br>
+        <a href="#" class="button is-danger is-active" id="reg_donate_btn">Donate</a>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    document.getElementById("button").addEventListener("click", function(){
+        document.querySelector(".popup").style.display="flex";
+    })
+
+    document.getElementById("reg_donate_btn").addEventListener("click", function() {
+        document.querySelector(".popup").style.display="none";
+        register_donor(document.getElementById('donor_details').value, document.getElementById('donor_amount').value );
+    })
+
+    document.getElementById("close").addEventListener("click", function(){
+        document.querySelector(".popup").style.display="none";
+    })
+</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="donate.css" > -->
+    <link rel="stylesheet" href="donate.css" >
+    <title>All Claims</title>
+</head>
+<body class = "lastpage">
+    <div class="row justify-content-md-center">
+        <p id="decentralized_address" style="margin-top: 550px;margin-left: 25vh;color: black;"> Current decentralized address : </p>
+      </div>
+    <div id="claim_array">
+        <input type="button" value="View all claims" onclick="access();" />
+    </div>
+    <script type="text/javascript">
+		function Redirect() {
+		   location.href="index.html";
+		}
+	</script>
+
+    <script>
+        function access() {
+            var success = 1;
+            for(let k=0;k<10;k++){
+                var myFun = async function(){ 
+                    try{
+                        console.log("hello");
+                        var createChild = await foodDonationContract.methods.retrieveRequest(k).call()
+                        console.log(createChild);
+                        if(createChild["0"] == true){              
+                            var parent_node = document.createElement("div")
+                            parent_node.className="box child"
+
+                            var element1 = document.createElement("span") 
+                            element1.innerHTML = "ID: " + createChild[1]
+                            parent_node.appendChild(element1)
+                            parent_node.appendChild(document.createElement("br"))
+                            
+
+                            var element2 = document.createElement("span") 
+                            element2.innerHTML = "Name: " + createChild[2]
+                            parent_node.append(element2)
+                            parent_node.appendChild(document.createElement("br"))
+                            
+                            
+                            var element3 = document.createElement("span")
+                            element3.innerHTML = "Food Type :" + createChild[3]
+                            parent_node.appendChild(element3)
+                            parent_node.appendChild(document.createElement("br"))
+                            
+                            var element4 = document.createElement("span")
+                            element4.innerHTML = "Food Preference :" + createChild[4]
+                            parent_node.appendChild(element4)
+                            parent_node.appendChild(document.createElement("br"))
+                            
+                            
+
+                            var element5 = document.createElement("span")
+                            element5.innerHTML = "Quantity Donated : 1" 
+                            parent_node.appendChild(element5)
+                            parent_node.appendChild(document.createElement("br"))
+                            
+
+                            var element6 = document.createElement("span");
+                            element6.innerHTML = "Received Status :" + createChild[6];
+                            parent_node.appendChild(element6)
+                            parent_node.appendChild(document.createElement("br"))
+                            
+
+                            var arr = document.getElementById("claim_array");
+                            arr.appendChild(parent_node);
+                        }
+                    }
+            catch(e){
+                success=0;
+                console.log("Transaction failed");
+                return
+            }
+        }
+        myFun().then((createChild)=>{
+            console.log(createChild);
+            if(success==1){
+                console.log("success");
+            }
+        });
+    }
+        }
+    </script>
+    <div>
+        <input type="button" value="Back to Home Page!" onclick="homeCall();" />
+    </div>
+
+    <script type="text/javascript">
+		function homeCall() {
+				 { Redirect(); };
+	}
+	</script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="app.js"></script>
+</html>

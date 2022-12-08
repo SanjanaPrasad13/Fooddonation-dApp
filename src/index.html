@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css" >
+</head>
+<body>
+        <div class="row justify-content-md-center">
+            <p id="decentralized_address" style="margin-top: 60px;"> Current decentralized address : </p>
+        </div>
+          <!-- HTML !-->
+       
+        <div id = "tokennum"> </div>
+        <section>
+          <div class="box" id="1">
+            <p id = "point1">
+              Wanna know more about us? Hop in!
+              New User?
+              Click on Airdrop Hope for Sign Up Bonus!
+            </p>
+            <a class="btn btn-primary"  role="button" onclick="airdrop()">Airdrop Hope</a>
+            <a class="btn btn-primary" href="about.html" role="button">About</a>
+          </div>
+          
+          <div class="box" id="2">
+            <p id = "point1">
+              Want to help the needy people? Join us in bringing more smiles by becoming a donor!
+            </p>
+              <a class="btn btn-primary" href="donate.html" role="button">Donate</a>
+          </div>
+  
+          <div class="box" id="3">
+            <p id = "point1">
+              Know anyone who needs food? 
+            </p>
+              <a class="btn btn-primary" href="claim.html" role="button">Receive</a>
+        </div>
+  
+      </section>
+
+      <script>
+        function airdrop(){
+          console.log("airdrop");
+            var success=1;
+            var tmp = async function(){ 
+                try{
+                    console.log("inside try of airdrop");
+                    return await foodDonationContract.methods.airdrop(currentAccount).send({from:currentAccount});
+                } 
+                catch(e){
+                    success=0;
+                    console.log(e);
+                    alert(" Transaction failed!");
+                }
+            }
+            tmp().then((val)=>{
+                console.log(val);
+                if(success==1){
+                    alert(" Transaction Success!");
+                }
+            });   
+                }
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="app.js"></script>
+</html>
